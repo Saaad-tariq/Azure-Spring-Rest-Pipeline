@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: azurespringpipeline 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azurespringpipeline
+  template:
+    metadata:
+      labels:
+        app: azurespringpipeline 
+    spec:
+      containers:
+        - name: azurespringpipeline 
+          image: azurespringreactcr.azurecr.io/azurespringpipeline
+          ports:
+          - containerPort: 8080
